@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lukas">
+<title>Edificio Lukas – Portal de Copropietarios</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+
+:root{
+  --azul:#1a3fa0;
+  --azul-osc:#102a72;
+  --azul-cl:#f4f7ff;
+  --crema:#faf8f3;
+  --blanco:#ffffff;
+  --terra:#c46844;
+  --terra-cl:#fdf2ec;
+  --verde:#3d7a5c;
+  --gris-1:#1a1a1a;
+  --gris-2:#4a4f5c;
+  --gris-3:#7a8092;
+  --gris-4:#d8dae3;
+  --gris-5:#eceef3;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+
+body{
+  font-family:var(--sans);
+  background:var(--crema);
+  color:var(--gris-1);
+  line-height:1.55;
+  font-size:16px;
+  min-height:100vh;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+.container{max-width:780px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+.header{
+  background:var(--azul);
+  color:var(--blanco);
+  padding:22px 0 24px;
+  position:relative;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.brand{
+  display:flex;flex-direction:column;
+}
+.brand-name{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:400;
+  letter-spacing:0.5px;
+  line-height:1;
+}
+.brand-tag{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.8px;
+  opacity:0.78;
+  margin-top:6px;
+}
+.brand-emblem{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:13px;
+  opacity:0.85;
+  text-align:right;
+}
+
+/* HERO */
+.hero{
+  padding:38px 0 28px;
+  text-align:center;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:30px;
+  line-height:1.2;
+  color:var(--gris-1);
+  letter-spacing:-0.3px;
+  margin-bottom:10px;
+}
+.hero-sub{
+  color:var(--gris-2);
+  font-size:15px;
+  max-width:480px;
+  margin:0 auto 22px;
+}
+.welcome-form{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+  max-width:420px;margin:0 auto;
+}
+.welcome-form input{
+  flex:1;min-width:140px;
+  padding:13px 16px;
+  border:1px solid var(--gris-4);
+  border-radius:8px;
+  font-size:16px;
+  font-family:var(--sans);
+  background:var(--blanco);
+  color:var(--gris-1);
+}
+.welcome-form input:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px var(--azul-cl)}
+.welcome-form button{
+  padding:13px 22px;
+  background:var(--azul);
+  color:var(--blanco);
+  border:none;border-radius:8px;
+  font-size:15px;font-weight:600;
+  font-family:var(--sans);
+  cursor:pointer;
+  transition:background .15s;
+}
+.welcome-form button:active{background:var(--azul-osc)}
+
+.welcome-current{
+  background:var(--azul-cl);
+  border:1px solid #c8d4f0;
+  border-radius:10px;
+  padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  max-width:420px;margin:0 auto;
+}
+.welcome-current-text{font-size:14px;color:var(--gris-2)}
+.welcome-current-text strong{color:var(--azul);font-weight:600}
+.welcome-current button{
+  background:transparent;
+  border:1px solid var(--azul);
+  color:var(--azul);
+  padding:6px 12px;
+  border-radius:6px;
+  font-size:12px;
+  cursor:pointer;
+  font-family:var(--sans);
+}
+
+/* SERVICIOS */
+.section-eyebrow{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.8px;
+  color:var(--gris-3);
+  margin-bottom:14px;
+  padding-left:4px;
+}
+.servicios{
+  margin:34px 0;
+}
+.serv-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+@media(min-width:640px){
+  .serv-grid{grid-template-columns:1fr 1fr}
+}
+.serv-card{
+  background:var(--blanco);
+  border:1px solid var(--gris-4);
+  border-radius:12px;
+  padding:20px;
+  cursor:pointer;
+  transition:border-color .15s,transform .1s;
+  text-align:left;
+  font-family:var(--sans);
+  display:flex;flex-direction:column;gap:6px;
+}
+.serv-card:active{transform:scale(0.985)}
+.serv-card:hover{border-color:var(--azul)}
+.serv-icon{
+  font-size:26px;line-height:1;margin-bottom:8px;
+}
+.serv-title{
+  font-size:17px;
+  font-weight:600;
+  color:var(--gris-1);
+}
+.serv-desc{
+  font-size:13px;
+  color:var(--gris-3);
+  flex:1;
+}
+.serv-arrow{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--azul);
+  font-weight:600;
+}
+
+/* INFO ÚTIL */
+.info{
+  background:var(--blanco);
+  border:1px solid var(--gris-4);
+  border-radius:12px;
+  padding:22px;
+  margin-bottom:18px;
+}
+.info-title{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:400;
+  margin-bottom:14px;
+  color:var(--gris-1);
+}
+.info-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px 0;
+  border-bottom:1px solid var(--gris-5);
+}
+.info-row:last-child{border-bottom:none;padding-bottom:0}
+.info-row:first-of-type{padding-top:0}
+.info-icon{
+  font-size:20px;line-height:1.2;flex-shrink:0;width:28px;
+}
+.info-content{flex:1}
+.info-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:var(--gris-3);
+  font-weight:600;
+  margin-bottom:3px;
+}
+.info-value{
+  font-size:15px;
+  color:var(--gris-1);
+}
+.info-value a{color:var(--azul);text-decoration:none;font-weight:500}
+.info-value a:active{opacity:0.7}
+.info-note{
+  font-size:12px;
+  color:var(--gris-3);
+  margin-top:4px;
+  font-style:italic;
+}
+
+.bank-highlight{
+  background:var(--terra-cl);
+  border:1px solid #f0d4c0;
+  border-radius:10px;
+  padding:14px 16px;
+  margin-top:6px;
+}
+.bank-highlight strong{color:var(--terra)}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:30px 20px 40px;
+  color:var(--gris-3);
+  font-size:12px;
+  line-height:1.7;
+}
+.footer-brand{
+  font-family:var(--serif);
+  color:var(--gris-2);
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(20,28,52,0.55);
+  z-index:100;
+  display:none;align-items:flex-end;justify-content:center;
+  padding:20px;
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+}
+.modal.show{display:flex}
+.modal-content{
+  background:var(--blanco);
+  border-radius:16px 16px 0 0;
+  width:100%;max-width:520px;
+  padding:24px 20px 30px;
+  animation:slideUp .25s ease-out;
+}
+@media(min-width:640px){
+  .modal{align-items:center}
+  .modal-content{border-radius:14px}
+}
+@keyframes slideUp{
+  from{transform:translateY(20px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+.modal-title{
+  font-family:var(--serif);
+  font-size:22px;
+  font-weight:400;
+  margin-bottom:6px;
+}
+.modal-desc{
+  color:var(--gris-2);
+  font-size:14px;
+  margin-bottom:18px;
+}
+.modal-options{display:flex;flex-direction:column;gap:8px}
+.modal-opt{
+  background:var(--azul-cl);
+  border:1px solid #c8d4f0;
+  border-radius:10px;
+  padding:14px 16px;
+  text-align:left;
+  cursor:pointer;
+  font-family:var(--sans);
+  font-size:15px;
+  color:var(--azul-osc);
+  font-weight:500;
+  transition:background .15s;
+}
+.modal-opt:hover{background:#e8eefd}
+.modal-opt:active{transform:scale(0.985)}
+.modal-opt-desc{
+  font-size:12px;
+  color:var(--gris-3);
+  font-weight:400;
+  margin-top:3px;
+}
+.modal-close{
+  margin-top:16px;
+  background:transparent;
+  border:none;
+  color:var(--gris-3);
+  font-size:14px;
+  padding:8px;
+  cursor:pointer;
+  width:100%;
+  font-family:var(--sans);
+}
+
+/* HIDE WHEN NOT NEEDED */
+.hidden{display:none !important}
+
+/* PLACEHOLDER STATE */
+.placeholder-msg{
+  background:var(--azul-cl);
+  border:1px dashed #b8c5e8;
+  border-radius:10px;
+  padding:16px 18px;
+  font-size:13px;
+  color:var(--gris-2);
+  text-align:center;
+  margin-top:14px;
+}
+.placeholder-msg strong{color:var(--azul)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-name">Edificio Lukas</div>
+      <div class="brand-tag">Portal de Copropietarios</div>
+    </div>
+    <div class="brand-emblem">Carrera 42 # 78-74<br>Barranquilla</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO / Bienvenida -->
+  <section class="hero">
+    <h1 class="hero-title" id="hero-title">Bienvenido a casa</h1>
+    <p class="hero-sub" id="hero-sub">Ingresa tu número de apartamento para personalizar tu experiencia.</p>
+
+    <div id="welcome-form" class="welcome-form">
+      <input type="text" id="apto-input" placeholder="Ej: 201, 304, Parq. 24" inputmode="text" autocomplete="off">
+      <button onclick="ingresarApto()">Continuar</button>
+    </div>
+
+    <div id="welcome-current" class="welcome-current hidden">
+      <div class="welcome-current-text">
+        Apartamento <strong id="apto-actual"></strong>
+      </div>
+      <button onclick="cambiarApto()">Cambiar</button>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios">
+    <div class="section-eyebrow">Servicios disponibles</div>
+    <div class="serv-grid">
+      <button class="serv-card" onclick="abrirReservas()">
+        <div class="serv-icon">📅</div>
+        <div class="serv-title">Reservar áreas comunes</div>
+        <div class="serv-desc">Salón social, piscina y zona BBQ</div>
+        <div class="serv-arrow">Reservar →</div>
+      </button>
+
+      <button class="serv-card" onclick="abrirSolicitudes()">
+        <div class="serv-icon">📋</div>
+        <div class="serv-title">Enviar una solicitud</div>
+        <div class="serv-desc">Reparaciones, sugerencias, quejas o consultas</div>
+        <div class="serv-arrow">Crear solicitud →</div>
+      </button>
+
+      <button class="serv-card" onclick="abrirMiCuenta()">
+        <div class="serv-icon">📊</div>
+        <div class="serv-title">Mi estado de cuenta</div>
+        <div class="serv-desc">Consulta tu cartera, pagos y cuentas de cobro</div>
+        <div class="serv-arrow">Ver mi cuenta →</div>
+      </button>
+
+      <button class="serv-card" onclick="abrirDocumentos()">
+        <div class="serv-icon">📁</div>
+        <div class="serv-title">Documentos del edificio</div>
+        <div class="serv-desc">Actas, comunicados e informes de gestión</div>
+        <div class="serv-arrow">Ver documentos →</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- INFORMACIÓN ÚTIL -->
+  <section class="info">
+    <h2 class="info-title">Información de pago</h2>
+
+    <div class="bank-highlight">
+      <div class="info-label">Pagar única y exclusivamente a:</div>
+      <div class="info-value" style="margin-top:6px;font-size:16px">
+        <strong>Davivienda – Cuenta de Ahorros</strong><br>
+        N° 0270-0004-9034
+      </div>
+      <div class="info-note">
+        A nombre de Edificio Lukas – NIT 900.457.679-7
+      </div>
+    </div>
+
+    <div class="info-row" style="margin-top:14px">
+      <div class="info-icon">📅</div>
+      <div class="info-content">
+        <div class="info-label">Cuota de administración</div>
+        <div class="info-value">Vence el día 10 de cada mes.</div>
+        <div class="info-note">El pago oportuno evita intereses de mora y permite que el edificio funcione al día.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info">
+    <h2 class="info-title">Contacto de la Administración</h2>
+
+    <div class="info-row">
+      <div class="info-icon">👤</div>
+      <div class="info-content">
+        <div class="info-label">Administradora</div>
+        <div class="info-value">Yolima Gómez</div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-icon">💬</div>
+      <div class="info-content">
+        <div class="info-label">WhatsApp</div>
+        <div class="info-value">
+          <a id="contacto-whatsapp" href="#">Abrir conversación</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-icon">✉️</div>
+      <div class="info-content">
+        <div class="info-label">Correo del edificio</div>
+        <div class="info-value">
+          <a id="contacto-email" href="#">edificiolukas@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">Edificio Lukas</div>
+  <div>© 2026 · Barranquilla, Colombia</div>
+  <div style="margin-top:6px;font-size:11px">Administración: Yolima Gómez</div>
+</footer>
+
+<!-- Modal genérico para opciones -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 class="modal-title" id="modal-title">Título</h2>
+    <p class="modal-desc" id="modal-desc">Descripción</p>
+    <div class="modal-options" id="modal-options"></div>
+    <button class="modal-close" onclick="cerrarModal()">Cancelar</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CONFIGURACIÓN DEL PORTAL — Editar estas URLs según se vayan creando
+// ============================================================
+const CONFIG = {
+  // Número de WhatsApp de la Administración (formato internacional sin "+" ni espacios)
+  // Ej: '573001234567' para Colombia (+57 300 123 4567)
+  whatsappAdmin: '573018132626', // Yolima Gómez – Administradora
+
+  // Correo del edificio
+  email: 'edificiolukas@gmail.com',
+
+  // URLs de Google Forms para reservas y solicitudes
+  // Cuando estén creados, pega la URL pública de cada uno aquí
+  // Mientras estén vacías, los botones abrirán WhatsApp con mensaje pre-llenado
+  forms: {
+    salonSocial: '',
+    piscina: '',
+    bbq: '',
+    solicitudes: ''
+  },
+
+  // URL de la carpeta pública de Google Drive con los documentos del edificio
+  // Sube allí actas, comunicados, informes I/E, etc., y pega la URL aquí
+  drive: '',
+
+  // URL del archivo JSON publicado con los datos del estado de cuenta
+  // (Fase 2: lo generaremos desde la app admin. Por ahora dejar vacío)
+  datosPublicos: ''
+};
+
+// ============================================================
+// LÓGICA DEL PORTAL
+// ============================================================
+
+// Recordar el apto del copropietario (en localStorage del navegador)
+function getApto(){
+  return localStorage.getItem('lukas_copro_apto')||'';
+}
+function setApto(a){
+  if(a) localStorage.setItem('lukas_copro_apto',a);
+  else localStorage.removeItem('lukas_copro_apto');
+  actualizarUI();
+}
+
+function actualizarUI(){
+  const apto=getApto();
+  const heroTitle=document.getElementById('hero-title');
+  const heroSub=document.getElementById('hero-sub');
+  const welcomeForm=document.getElementById('welcome-form');
+  const welcomeCurrent=document.getElementById('welcome-current');
+  const aptoActual=document.getElementById('apto-actual');
+
+  if(apto){
+    heroTitle.textContent='Hola, apto '+apto;
+    heroSub.textContent='¿Qué necesitas hoy?';
+    welcomeForm.classList.add('hidden');
+    welcomeCurrent.classList.remove('hidden');
+    aptoActual.textContent=apto;
+  } else {
+    heroTitle.textContent='Bienvenido a casa';
+    heroSub.textContent='Ingresa tu número de apartamento para personalizar tu experiencia.';
+    welcomeForm.classList.remove('hidden');
+    welcomeCurrent.classList.add('hidden');
+  }
+}
+
+function ingresarApto(){
+  const valor=document.getElementById('apto-input').value.trim();
+  if(!valor){alert('Por favor ingresa tu número de apartamento');return;}
+  setApto(valor);
+}
+function cambiarApto(){
+  setApto('');
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function abrirModal(titulo, desc, opciones){
+  document.getElementById('modal-title').textContent=titulo;
+  document.getElementById('modal-desc').textContent=desc;
+  const cont=document.getElementById('modal-options');
+  cont.innerHTML='';
+  opciones.forEach(op=>{
+    const btn=document.createElement('button');
+    btn.className='modal-opt';
+    btn.innerHTML='<div>'+op.titulo+'</div>'+(op.desc?'<div class="modal-opt-desc">'+op.desc+'</div>':'');
+    btn.onclick=()=>{cerrarModal();op.accion();};
+    cont.appendChild(btn);
+  });
+  document.getElementById('modal').classList.add('show');
+}
+function cerrarModal(){
+  document.getElementById('modal').classList.remove('show');
+}
+document.getElementById('modal').addEventListener('click',e=>{
+  if(e.target.id==='modal') cerrarModal();
+});
+
+// ============================================================
+// ACCIONES — Cada servicio
+// ============================================================
+
+function abrirEnNuevaPestana(url){
+  window.open(url,'_blank','noopener,noreferrer');
+}
+
+function whatsappURL(mensaje){
+  return 'https://wa.me/'+CONFIG.whatsappAdmin+'?text='+encodeURIComponent(mensaje);
+}
+
+function fechaHoy(){
+  const d=new Date();
+  return d.toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'});
+}
+
+function abrirReservas(){
+  const apto=getApto()||'(indica tu apto)';
+  abrirModal(
+    'Reservar áreas comunes',
+    'Selecciona el espacio que quieres reservar. Si el formulario no está disponible, te llevamos a WhatsApp con la administración.',
+    [
+      {
+        titulo:'🎉 Salón Social',
+        desc:'Para reuniones, celebraciones y eventos',
+        accion:()=>{
+          if(CONFIG.forms.salonSocial){
+            abrirEnNuevaPestana(CONFIG.forms.salonSocial);
+          } else {
+            const msg='Hola Yolima 👋\n\nQuiero reservar el SALÓN SOCIAL del edificio.\n\nApto: '+apto+'\nFecha solicitada: ___\nHorario: ___\nMotivo del evento: ___';
+            abrirEnNuevaPestana(whatsappURL(msg));
+          }
+        }
+      },
+      {
+        titulo:'🏊 Piscina',
+        desc:'Reserva de uso o eventos especiales',
+        accion:()=>{
+          if(CONFIG.forms.piscina){
+            abrirEnNuevaPestana(CONFIG.forms.piscina);
+          } else {
+            const msg='Hola Yolima 👋\n\nQuiero reservar la PISCINA.\n\nApto: '+apto+'\nFecha solicitada: ___\nHorario: ___\nMotivo: ___';
+            abrirEnNuevaPestana(whatsappURL(msg));
+          }
+        }
+      },
+      {
+        titulo:'🍖 Zona BBQ',
+        desc:'Para asados y reuniones al aire libre',
+        accion:()=>{
+          if(CONFIG.forms.bbq){
+            abrirEnNuevaPestana(CONFIG.forms.bbq);
+          } else {
+            const msg='Hola Yolima 👋\n\nQuiero reservar la ZONA BBQ.\n\nApto: '+apto+'\nFecha solicitada: ___\nHorario: ___\nNúmero de personas: ___';
+            abrirEnNuevaPestana(whatsappURL(msg));
+          }
+        }
+      }
+    ]
+  );
+}
+
+function abrirSolicitudes(){
+  const apto=getApto()||'(indica tu apto)';
+  if(CONFIG.forms.solicitudes){
+    abrirEnNuevaPestana(CONFIG.forms.solicitudes);
+    return;
+  }
+  abrirModal(
+    'Enviar una solicitud',
+    'Escoge el tipo de solicitud. Se abrirá WhatsApp con un mensaje pre-llenado para que solo describas lo que necesitas.',
+    [
+      {
+        titulo:'🔧 Reparación o mantenimiento',
+        desc:'Reportar daños en áreas comunes',
+        accion:()=>{
+          const msg='Hola Yolima 👋\n\nSOLICITUD DE REPARACIÓN\n\nApto: '+apto+'\nFecha: '+fechaHoy()+'\nUbicación del daño: ___\nDescripción: ___';
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      },
+      {
+        titulo:'💡 Sugerencia',
+        desc:'Proponer mejoras para el edificio',
+        accion:()=>{
+          const msg='Hola Yolima 👋\n\nSUGERENCIA\n\nApto: '+apto+'\nFecha: '+fechaHoy()+'\n\nMi propuesta: ___';
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      },
+      {
+        titulo:'😟 Queja o reclamo',
+        desc:'Reportar inconvenientes de convivencia',
+        accion:()=>{
+          const msg='Hola Yolima 👋\n\nQUEJA / RECLAMO\n\nApto: '+apto+'\nFecha: '+fechaHoy()+'\n\nMotivo: ___';
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      },
+      {
+        titulo:'❓ Consulta general',
+        desc:'Cualquier otra pregunta',
+        accion:()=>{
+          const msg='Hola Yolima 👋\n\nCONSULTA\n\nApto: '+apto+'\nFecha: '+fechaHoy()+'\n\nMi pregunta: ___';
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      }
+    ]
+  );
+}
+
+function abrirMiCuenta(){
+  const apto=getApto();
+  if(!apto){
+    alert('Primero ingresa tu número de apartamento en la parte superior.');
+    document.getElementById('apto-input').focus();
+    return;
+  }
+  abrirModal(
+    'Mi estado de cuenta — Apto '+apto,
+    'La consulta en línea estará disponible próximamente. Mientras tanto, solicítala directamente a la Administración.',
+    [
+      {
+        titulo:'💬 Solicitar por WhatsApp',
+        desc:'Recibirás tu estado de cuenta actualizado en minutos',
+        accion:()=>{
+          const msg='Hola Yolima 👋\n\nSolicito mi ESTADO DE CUENTA actualizado.\n\nApto: '+apto+'\nFecha: '+fechaHoy();
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      },
+      {
+        titulo:'✉️ Solicitar por correo',
+        desc:'Lo recibirás por email',
+        accion:()=>{
+          const asunto='Solicitud de estado de cuenta - Apto '+apto;
+          const cuerpo='Buen día,\n\nSolicito mi estado de cuenta actualizado al '+fechaHoy()+'.\n\nApartamento: '+apto+'\n\nGracias.';
+          window.location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent(asunto)+'&body='+encodeURIComponent(cuerpo);
+        }
+      }
+    ]
+  );
+}
+
+function abrirDocumentos(){
+  if(CONFIG.drive){
+    abrirEnNuevaPestana(CONFIG.drive);
+    return;
+  }
+  abrirModal(
+    'Documentos del edificio',
+    'La biblioteca digital estará disponible en breve. Por ahora puedes solicitar el documento que necesites.',
+    [
+      {
+        titulo:'💬 Solicitar un documento',
+        desc:'Te lo enviamos por WhatsApp',
+        accion:()=>{
+          const apto=getApto()||'(indica tu apto)';
+          const msg='Hola Yolima 👋\n\nSolicito un DOCUMENTO del edificio.\n\nApto: '+apto+'\nDocumento que necesito: ___\n(actas de asamblea, comunicados, informes de gestión, reglamento, etc.)';
+          abrirEnNuevaPestana(whatsappURL(msg));
+        }
+      }
+    ]
+  );
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init(){
+  actualizarUI();
+
+  // Permitir Enter en el input
+  const inp=document.getElementById('apto-input');
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter') ingresarApto();});
+
+  // Configurar enlaces de contacto
+  document.getElementById('contacto-whatsapp').href=whatsappURL('Hola Yolima 👋');
+  document.getElementById('contacto-email').href='mailto:'+CONFIG.email;
+  document.getElementById('contacto-email').textContent=CONFIG.email;
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',init);
+} else {
+  init();
+}
+</script>
+
+</body>
+</html>
